@@ -1,0 +1,69 @@
+
+body {
+    background-color: darkslategray;
+    color: antiquewhite;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+
+.selection {
+    display: flex;
+    justify-content: center;
+}
+
+.choice {
+    margin-top: 15px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 10rem;
+    transition: 100ms;  /* icons grow and shrink when clicked */
+}
+
+.choice:hover {
+    transform: scale:(1.2);
+}
+
+.results {       /*The result grid, two columns in the center*/
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);  /*Creates two columns of equal size*/
+    justify-items: center;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.score {
+    margin-left: .1rem;
+    font-size: .5rem;
+    color: #999;
+    font-size: 2rem;
+}
+
+.round {
+    margin-left: .1rem;
+    font-size: .5rem;
+    color: #999;
+    font-size: 2rem;
+}
+
+
+.res-selection {
+    opacity: .5;
+}
+
+
+.res-selection.winner {
+    opacity: 1;
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
