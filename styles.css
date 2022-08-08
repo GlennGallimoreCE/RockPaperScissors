@@ -1,33 +1,126 @@
 
 body {
-    background-color: darkslategray;
+    /*background-color: darkslategray;*/
+    background: linear-gradient(45deg, red, green, blue, yellow);
+    background-size: 400% 400%;
+    width: 100%;
+    height: 100vh;
+    animation: animate 25s ease infinite;
     color: antiquewhite;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
+    
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 400px; /* Full width */
+    height: 550px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    font-size: 30px;
+   
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    transition: 0.3s;
+  }
+  
+  /* The Close Button */
+  .close {
+    margin-left: 20rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.rulesBtn {
+    position: absolute;
+    width: 130px;
+    text-align: left;
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 237, 137);
+    border: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: x-large;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius:  0 5px 5px 0;
+    left: -80px;
+}
+
+.rulesBtn:hover {
+    transition: 0.3s;
+    left: 0;
+}
+
+.titleScreen {
+    margin-top: 1rem;
+    padding: 1rem;
+    position: relative;
+    font-size: 50px;
+    font-weight: 900;
+    transform: rotate(-6deg);
+    animation: fl1 3s infinite linear;
+    
+}
+
+.titleScreen::before {
+    content: attr(data-text);
+    position: absolute;
+    animation: fl2 3s infinite linear;
+}
+
 
 .selection {
     display: flex;
     justify-content: center;
 }
 
-.choice {
+.choiceBtn {
     margin-top: 15px;
-    background-color: transparent;
+    margin: 1.5rem;
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 10rem;
+    font-size: 4rem;
     transition: 100ms;  /* icons grow and shrink when clicked */
+    
 }
 
-.choice:hover {
-    transform: scale(1.2);
-    background-color: rgb(103, 148, 133);
+/*----------------------------------------------------------------------------------- */
+
+.choiceBtn:hover {
+    transform: scale(1.2); 
     border-radius: 15%;
 }
 
-.results {       /*The result grid, two columns in the center*/
+.gameBoard {       /*The result grid, two columns in the center*/
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);  /*Creates two columns of equal size*/
@@ -38,27 +131,17 @@ body {
     
 }
 
-.score {
+.theScore {
     margin-left: .1rem;
     font-size: .5rem;
     color: #999;
     font-size: 2rem;
+    animation: reverse;
+    animation-duration: 2;
     
 }
 
-.round {
-    margin-left: .1rem;
-    font-size: .5rem;
-    color: #999;
-    font-size: 2rem;
 
-}
-
-
-.result-selection {
-    opacity: .5;
-
-}
 
 
 .result-selection.winner {
@@ -70,9 +153,86 @@ body {
     
 }
 
+#picRock {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border-style: inset;
+    border-color: gold;
+    background: url(./images/rock.png);
+    background-position: center;
+    background-size: cover;
+}
+
+#picPaper {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border-style: inset;
+    border-color: gold;
+    background: url(./images/paper.png);
+    background-size: cover;
+}
+
+#picScissors {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border-style: inset;
+    border-color: gold;
+    background: url(./images/scissors.png);
+    
+}
+
+#picLizard {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border-style: inset;
+    border-color: gold;
+    background: url(./images/lizard.png);
+    background-position: center;
+    background-size: cover;
+}
+
+#picSpock {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border-style: inset;
+    border-color: gold;
+    background: url(./images/spock.png);
+    background-size: cover;
+}
 
 
+@keyframes fl1 {
+    30% {
+        transform: translateY(10%) rotate(4deg);
+    }
+    70% {
+        transform: translateY(10%) rotate(-4deg);
+    }
+}
 
+@keyframes fl2 {
+    30% {
+        transform: translateY(10%) rotate(4deg);
+    }
+    70% {
+        transform: translateY(10%) rotate(-4deg);
+    }
+}
 
+@keyframes animate {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 
-
+}

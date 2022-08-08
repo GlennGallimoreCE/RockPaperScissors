@@ -1,34 +1,69 @@
+/* This is the old code, I could not modify it to use the Lizard and Spock rules so it's discarded -8-7-2022, Glenn
 
 // First line is a constant variable, and a query selector for all choices made.  data-selection is in an array
-const selectionButtons = document.querySelectorAll('[data-selection]')
-const finalColumn = document.querySelector('[data-final-column]')
-const cpuScoreSpan = document.querySelector('[data-cpu-score]')
-const myScoreSpan = document.querySelector('[data-my-score]')
-let totalRounds = document.querySelector('[data-round]') 
+const selectionButtons = document.querySelectorAll('[data-selection]');
+const finalColumn = document.querySelector('[data-final-column]');
+const cpuScoreSpan = document.querySelector('[data-cpu-score]');
+const myScoreSpan = document.querySelector('[data-my-score]');
+let totalRounds = document.querySelector('[data-round]');
+
+
 
 const SELECTIONS = [
   {
-    name: 'rock',
+    name: 'rock', 
+
     emoji: '🪨',
-    beats: 'scissors'
+    beats: 'scissors', 
+    also: 'lizard'
   },
+
   {
     name: 'paper',
+   
     emoji: '🗒️',
-    beats: 'rock'
+    beats: 'rock',
+    also: 'spock'
   },
+
   {
     name: 'scissors',
+   
     emoji: '✂️',
-    beats: 'paper'
+    beats: 'paper',
+    also: 'lizard'
   },
+
+  {
+    name: 'lizard',
+   
+    emoji: '🦎',
+    beats: 'spock',
+    also: 'paper'
+  },
+
+  {
+    name: 'spock',
+   
+    emoji: '🖖',
+    beats: 'rock',
+    also: 'scissors'
+  },
+
+
+
 ]
+
+
+
+
 
 
 selectionButtons.forEach(selectionButton => {
   selectionButton.addEventListener('click', e => {
     const selectionName = selectionButton.dataset.selection
     const selection = SELECTIONS.find(selection => selection.name === selectionName)
+    //const selection = SELECTIONS.find(selection => selection.name === selectionName)
     makeSelection(selection)
 
   })
@@ -42,7 +77,6 @@ function incrementScore(scoreSpan) {
 
 
 }
-
 
 
 
@@ -66,15 +100,17 @@ function makeSelection(selection) {
     } else {
         play();
     } 
-}*/
+}
 
 function addSelectionResult(selection, winner) {
   const div = document.createElement('div')
+
+  //div.innerHTML = selection.image
   div.innerText = selection.emoji
   div.classList.add('result-selection')
   if (winner) div.classList.add('winner')
   finalColumn.after(div)
-  if (totalRounds.innerText >= 5) {//Calls to end the game after five rounds
+  if (totalRounds.innerText >= 20) {//Calls to end the game after twenty rounds
     
     setTimeout(gameOver, 50);
     return false;
@@ -96,6 +132,7 @@ function randomSelection() {
 }
 
 function isWinner(selection, opponentSelection) {
+  
   return selection.beats === opponentSelection.name
   
 }
